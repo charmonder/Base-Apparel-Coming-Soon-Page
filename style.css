@@ -1,0 +1,201 @@
+:root {
+  --clr-desat-red: hsl(0, 36%, 70%);
+  --clr-dark-red: hsl(0, 6%, 24%);
+  --clr-red: hsl(0, 93%, 68%);
+  --clr-grey: hsl(0, 0%, 85%);
+  --bg-grad-01: hsl(0, 0%, 100%);
+  --bg-grad-02: hsl(0, 100%, 98%);
+  --button-grad-01: hsl(0, 80%, 86%);
+  --button-grad-02: hsl(0, 74%, 74%);
+
+  --f-size-h1: 3.5rem;
+  --f-size-h2: 1rem;
+  --f-size-p: 0.8rem;
+}
+
+/************************** texts **************************/
+
+h1{
+  color: var(--clr-dark-red);
+  font-size: var(--f-size-h1);
+  font-weight: 600;
+  letter-spacing: 15px;
+  line-height: 1.1;
+}
+
+.light{
+  color: var(--clr-desat-red);
+  font-weight: 300;
+}
+
+h2{
+  color: var(--clr-desat-red);
+  font-size: var(--f-size-h2);
+  font-weight: 400;
+  line-height: 1.5;
+  margin-top: 15px;
+  margin-bottom: 30px;
+  max-width: 450px;
+}
+
+.valid-error p{
+  color: var(--clr-red);
+  font-size: var(--f-size-p);
+  margin-top: 90px;
+  margin-left: 32px;
+}
+
+/************************** others **************************/
+
+*{
+  box-sizing: border-box;
+  font-family: "Josefin Sans", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+body{
+  min-height: 100vh;
+  width: 100%;
+  background-image: url("images/bg-pattern-desktop.svg"), linear-gradient(135deg, var(--bg-grad-01), var(--bg-grad-02));
+  background-repeat: no-repeat;
+  background-size: 60%;
+}
+
+main{
+  display: grid;
+  grid-template-columns: [first] auto [line2] minmax(610px, 610px) [end];
+  grid-template-rows: [first] 100px [line2] auto [end];
+  min-height: 100vh;
+  min-width: 100%;
+}
+
+.main-img{
+  grid-column: line2 / end;
+  grid-row: first / end;
+
+  background-image: url("images/hero-desktop.jpg");
+  background-repeat: no-repeat;
+  height: 100%;
+}
+
+.logo{
+  grid-column: first / line2;
+  grid-row: first / line2;
+  padding: 50px 150px 0 150px;
+}
+
+.main-content{
+  grid-column: first / line2;
+  grid-row: line2 / end;
+  margin-bottom: 30px;
+  padding: 120px 150px 0;
+}
+
+form{
+  border: solid 1.8px;
+  border-color: var(--clr-grey);
+  border-radius: 30px;
+  padding: 5px;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  height: 50px;
+  width: 380px;
+}
+
+input {
+  border: none;
+  margin-left: 15px;
+  padding: 10px;
+  width: 280px;
+}
+
+.error {
+  margin-left: 100px;
+}
+
+button {
+  border: none;
+  background-image: linear-gradient(135deg, var(--button-grad-01), var(--button-grad-02));
+  border-radius: 30px;
+  padding: 14px 40px;
+  position: relative;
+  left: 5%;
+}
+
+button:hover{
+  box-shadow: 0 10px 20px var(--clr-desat-red);
+  background-image: linear-gradient(var(--button-grad-01), var(--button-grad-01));
+  cursor: pointer;
+}
+
+/************************** JS class **************************/
+
+.hidden{
+  display: none;
+}
+
+/************************** mobile **************************/
+
+@media (max-width: 900px){
+
+  body{
+    background-size: 100%;
+  }
+
+  main{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .logo{
+    padding: 30px;
+  }
+
+  .main-img{
+    background-image: url(images/hero-mobile.jpg);
+    background-position: center;
+    background-size: cover;
+    min-height: 350px;
+    width: 100%;
+  }
+
+  .main-content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 70px 150px 0;
+  }
+
+  form{
+    margin-top: 300px;
+    width: 350px;
+  }
+
+  input{
+    width: 200px;
+  }
+
+  .error {
+    margin-left: 0;
+  }
+
+  button{
+    left: 11%;
+  }
+
+  .valid-error p {
+    margin-top: 0;
+    margin-left: 60px;
+    text-align: left;
+    width: 350px;
+  }
+
+  h2{
+    margin-bottom: 100px;
+  }
+
+}
